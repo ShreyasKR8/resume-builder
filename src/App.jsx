@@ -1,39 +1,34 @@
 import { useState } from "react"
 import './App.css'
-import InputComponent from './components/InputComponent'
+import PersonalInfo from './components/PersonalInfo'
+import Resume from './components/Resume'
 
 function App() {
     const [formDetails, setFormDetails] = useState({
         name: '',
         designation: '',
         email: '',
+        phone: '',
+        websiteLink: '',
     });
 
     function handleInputChange(e) {
         setFormDetails({
             ...formDetails,
             [e.target.id]: e.target.value
-        })
+        });
     }
 
-  return (
-    <>
-      <section className='edit-section'>
-        <form>
-            <InputComponent id='name' label='Name' inputType='text' handleInputChange={handleInputChange}/>
-            <InputComponent id='designation' label={'Designation'} inputType={'text'} handleInputChange={handleInputChange} />
-            <InputComponent id='email' label={'Email'} inputType={'email'} handleInputChange={handleInputChange}/>
-        </form>
-      </section>
-      <section className='resume-section'>
-        <div className='personal-details'>
-            <p>{formDetails.name}</p>
-            <p>{formDetails.designation}</p>
-            <p>{formDetails.email}</p>
-        </div>
-      </section>
-    </>
-  )
+    return (
+        <section className="MainSection">
+            <section className='EditSection'>
+                <PersonalInfo handleInputChange={handleInputChange}/>
+            </section>
+            <section className="MainContent">
+                <Resume formDetails={formDetails} />
+            </section>
+        </section>
+    )
 }
 
 export default App

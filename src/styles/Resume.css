@@ -1,0 +1,18 @@
+.ResumeSection {
+    border-radius: 4px;
+    box-shadow: 1px 1px 2px rgb(162, 162, 162);
+    /* height: 100vh; */
+    margin: 20px 50px;
+    background-color: white;
+}
+
+.PersonalDetails {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+}
+
+h1 {
+    font-size: 2.5em;
+    line-height: 1.1;
+  }
