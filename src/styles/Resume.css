@@ -16,3 +16,14 @@ h1 {
     font-size: 2.5em;
     line-height: 1.1;
   }
+
+.EmailIcon {
+    margin-right: 5px;
+}
+
+.IconTextContainer {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 5px;
+}
