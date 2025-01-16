@@ -18,15 +18,15 @@ export default function Resume({ formDetails }) {
                 </div>
                 <div className="ContactInfo">
                     <div className="IconTextContainer">
-                        <img src={emailIcon} className="EmailIcon" alt="email icon" />
+                        {formDetails.email && <img src={emailIcon} className="EmailIcon" alt="email icon" />}
                         <p>{formDetails.email}</p>
                     </div>
                     <div className="IconTextContainer">
-                        <img src={phoneIcon} className="PhoneIcon" alt="phone icon" />
+                        {formDetails.phone && <img src={phoneIcon} className="PhoneIcon" alt="phone icon" />}
                         <p>{formDetails.phone}</p>
                     </div>
                     <div className="IconTextContainer">
-                        <img src={socialsIcon} className="GithubIcon" alt="github icon" />
+                        {websiteLink && <img src={socialsIcon} className="GithubIcon" alt="github icon" />}
                         <p>{websiteLink}</p>
                     </div>
                 </div>

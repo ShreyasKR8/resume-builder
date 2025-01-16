@@ -1,7 +1,7 @@
 import { useState } from "react"
 import './App.css'
-import PersonalInfo from './components/PersonalInfo'
 import Resume from './components/Resume'
+import EditSection from "./components/EditResume"
 
 function App() {
     const [formDetails, setFormDetails] = useState({
@@ -18,12 +18,9 @@ function App() {
             [e.target.id]: e.target.value
         });
     }
-
     return (
         <section className="MainSection">
-            <section className='EditSection'>
-                <PersonalInfo handleInputChange={handleInputChange}/>
-            </section>
+            <EditSection handleInputChange={handleInputChange}/>
             <section className="MainContent">
                 <Resume formDetails={formDetails} />
             </section>
