@@ -8,26 +8,28 @@ export default function Resume({ formDetails }) {
     if(formDetails.websiteLink.startsWith('https://')) {
         websiteLink = formDetails.websiteLink.split('https://')[1];
     }
+
+    const mailTo = `mailto:${formDetails.email}`;
     
     return (
         <section className='ResumeSection'>
             <div className='PersonalDetails'>
                 <div className="NameDes">
                     <h1>{formDetails.name}</h1>
-                    <p>{formDetails.designation}</p>
+                    <h4>{formDetails.designation}</h4>
                 </div>
                 <div className="ContactInfo">
                     <div className="IconTextContainer">
-                        {formDetails.email && <img src={emailIcon} className="EmailIcon" alt="email icon" />}
-                        <p>{formDetails.email}</p>
+                        <a href={mailTo} className='ContactLinks'>{formDetails.email && <img src={emailIcon} className="EmailIcon" alt="email icon" />}
+                        <p>{formDetails.email}</p></a>
                     </div>
                     <div className="IconTextContainer">
                         {formDetails.phone && <img src={phoneIcon} className="PhoneIcon" alt="phone icon" />}
                         <p>{formDetails.phone}</p>
                     </div>
                     <div className="IconTextContainer">
-                        {websiteLink && <img src={socialsIcon} className="GithubIcon" alt="github icon" />}
-                        <p>{websiteLink}</p>
+                        <a href={formDetails.websiteLink} className='ContactLinks'>{websiteLink && <img src={socialsIcon} className="GithubIcon" alt="github icon" />}
+                        <p>{websiteLink}</p></a>
                     </div>
                 </div>
             </div>

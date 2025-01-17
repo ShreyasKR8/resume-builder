@@ -27,3 +27,14 @@ h1 {
     gap: 4px;
     margin-bottom: 5px;
 }
+
+.IconTextContainer .ContactLinks {
+    text-decoration: none;
+    color: #213547;
+    display: flex;
+    align-items: center;
+}
+
+.IconTextContainer .ContactLinks:hover {
+    color: #747bff;
+}
