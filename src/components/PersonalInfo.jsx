@@ -11,7 +11,7 @@ export default function PersonalInfo({ handleInputChange }) {
             <InputComponent id='designation' label={'Designation'} inputType={'text'} handleInputChange={handleInputChange} />
             <InputComponent id='email' label={'Email'} inputType={'email'} handleInputChange={handleInputChange}/>
             <InputComponent id='phone' label={'Phone Number'} inputType={'tel'} handleInputChange={handleInputChange}/>
-            <InputComponent id='websiteLink' label={'Website links'} inputType={'url'} handleInputChange={handleInputChange}/>
+            {/* <WebLinksComponent id='websiteLink' label={'Website links'} inputType={'url'} handleInputChange={handleInputChange} allowMultipleFields={true}/> */}
         </form>
     </article>
   );

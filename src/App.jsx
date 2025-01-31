@@ -9,7 +9,7 @@ function App() {
         designation: '',
         email: '',
         phone: '',
-        websiteLink: '',
+        websiteLink: [''],
     });
 
     function handleInputChange(e) {
@@ -17,10 +17,30 @@ function App() {
             ...formDetails,
             [e.target.id]: e.target.value
         });
+        }
+        
+    function handleWebLinksChange(e, index) {
+        const value = e.target.value;
+        setFormDetails(prevDetails => {
+            const updatedLinks = [...prevDetails.websiteLink];
+            updatedLinks[index] = value;
+            return {
+                ...prevDetails,
+                websiteLink: updatedLinks
+            }; 
+        });
     }
+    
+    function addWebsiteLink() {
+        setFormDetails(prevDetails => ({
+            ...prevDetails,
+            websiteLink: [...prevDetails.websiteLink, ""]  
+        }));
+    }
+
     return (
         <section className="MainSection">
-            <EditSection handleInputChange={handleInputChange}/>
+            <EditSection handleInputChange={handleInputChange} formDetails={formDetails} handleWebLinksChange={handleWebLinksChange} addWebsiteLink={addWebsiteLink}/>
             <section className="MainContent">
                 <Resume formDetails={formDetails} />
             </section>
