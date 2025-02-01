@@ -4,14 +4,6 @@ import phoneIcon from '../assets/phone_smartphone_icon.svg'
 import socialsIcon from '../assets/social_github_icon.svg'
 
 export default function Resume({ formDetails }) {
-    // let websiteLink = [];
-    // formDetails.websiteLink.forEach(link => {
-    //     console.log(link)
-    //     if(link.startsWith('https://')) {
-    //         websiteLink.push(link.split('https://')[1]);
-    //     }
-    // })
-    // console.log(websiteLink.length);
 
     const mailTo = `mailto:${formDetails.email}`;
     
@@ -33,13 +25,12 @@ export default function Resume({ formDetails }) {
                     </div>
                     <div className="IconTextContainer">
                     {
-                     formDetails.websiteLink.map((link, index) => {
-                        // console.log(link);
-                        return (<a key={index} href={link} className='ContactLinks'><img src={socialsIcon} className="GithubIcon" alt="github icon" />
-                        <p>{link}</p></a>);
-                    })}
-                        {/* <a href={formDetails.websiteLink} className='ContactLinks'>{websiteLink && <img src={socialsIcon} className="GithubIcon" alt="github icon" />}
-                        <p>{websiteLink}</p></a> */}
+                        formDetails.websiteLink.map((link, index) => {
+                            link = link.split('https://')[1]
+                            return (<a key={index} href={link} className='ContactLinks'>{link && <img src={socialsIcon} className="GithubIcon" alt="github icon" />}
+                                <p>{link}</p></a>);
+                        })
+                    }
                     </div>
                 </div>
             </div>
