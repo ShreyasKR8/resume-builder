@@ -1,16 +1,28 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import './App.css'
 import Resume from './components/Resume'
 import EditSection from "./components/EditResume"
+import storage from "./storage.js"
 
 function App() {
-    const [formDetails, setFormDetails] = useState({
-        name: '',
-        designation: '',
-        email: '',
-        phone: '',
-        websiteLink: [''],
-    });
+    const [formDetails, setFormDetails] = useState(() => {
+        const savedFormDetails = storage.loadDetails();
+        if(savedFormDetails) {
+            return savedFormDetails;
+        } else {
+            return {
+                    name: '',
+                    designation: '',
+                    email: '',
+                    phone: '',
+                    websiteLink: [''],
+                }
+        }
+        });
+
+    useEffect(() => {
+        storage.saveDetails(formDetails);
+    }, [formDetails]);
 
     function handleInputChange(e) {
         setFormDetails({
@@ -53,6 +65,7 @@ function App() {
             <EditSection handleInputChange={handleInputChange} formDetails={formDetails}
                 handleWebLinksChange={handleWebLinksChange} addWebsiteLink={addWebsiteLink}
                 removeWebsiteLink={removeWebsiteLink}
+                loadedValues={formDetails}
             />
             <section className="MainContent">
                 <Resume formDetails={formDetails} />

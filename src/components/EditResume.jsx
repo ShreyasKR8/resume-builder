@@ -2,11 +2,11 @@
 import PersonalInfo from "./PersonalInfo";
 import '../styles/EditResume.css'
 
-export default function EditSection({ handleInputChange, formDetails, handleWebLinksChange, addWebsiteLink, removeWebsiteLink}) {
+export default function EditSection({ handleInputChange, formDetails, handleWebLinksChange, addWebsiteLink, removeWebsiteLink }) {
 
     return (
         <section className='EditSection'>
-            <PersonalInfo handleInputChange={handleInputChange}/>
+            <PersonalInfo handleInputChange={handleInputChange} loadedValues={formDetails}/>
             <div className="WebsiteLinksDiv">
                 <div className="WebLabelDiv">
                     <label>Website Links:</label>
