@@ -1,7 +1,8 @@
 import '../styles/Resume.css'
 import emailIcon from '../assets/email_icon.svg'
 import phoneIcon from '../assets/phone_smartphone_icon.svg'
-import socialsIcon from '../assets/social_github_icon.svg'
+import gitIcon from '../assets/social_github_icon.svg'
+import linkedInIcon from '../assets/icons8-linkedin.svg'
 
 export default function Resume({ formDetails }) {
 
@@ -26,9 +27,16 @@ export default function Resume({ formDetails }) {
                     <div className="IconTextContainer">
                     {
                         formDetails.websiteLink.map((link, index) => {
-                            link = link.split('https://')[1]
+                            const socialsIcon = link.includes('git') ? gitIcon : linkedInIcon;
+                            let linkText = '';
+                            if(link !== '') {
+                                linkText = link.split('https://')[1]
+                                if(linkText && linkText.startsWith('www.')) {
+                                    linkText = linkText.split('www.')[1];
+                                }
+                            }
                             return (<a key={index} href={link} className='ContactLinks'>{link && <img src={socialsIcon} className="GithubIcon" alt="github icon" />}
-                                <p>{link}</p></a>);
+                                <p>{linkText}</p></a>);
                         })
                     }
                     </div>
