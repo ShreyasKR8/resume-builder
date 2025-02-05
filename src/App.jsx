@@ -7,18 +7,26 @@ import storage from "./storage.js"
 function App() {
     const [formDetails, setFormDetails] = useState(() => {
         const savedFormDetails = storage.loadDetails();
-        if(savedFormDetails) {
+        if (savedFormDetails) {
             return savedFormDetails;
         } else {
             return {
-                    name: '',
-                    designation: '',
-                    email: '',
-                    phone: '',
-                    websiteLink: [''],
-                }
+                name: '',
+                designation: '',
+                email: '',
+                phone: '',
+                websiteLink: [''],
+                education: [
+                    {
+                        school: "",
+                        degree: "",
+                        years: "",
+                        grade: ""
+                    }
+                ]
+            }
         }
-        });
+    });
 
     useEffect(() => {
         storage.saveDetails(formDetails);
@@ -39,6 +47,18 @@ function App() {
             return {
                 ...prevDetails,
                 websiteLink: updatedLinks
+            };
+        });
+    }
+
+    function handleEdFieldChange(e, index) {
+        const value = e.target.value;
+        setFormDetails(prevDetails => {
+            const updatedEd = [...prevDetails.education];
+            updatedEd[index][e.target.id] = value;
+            return {
+                ...prevDetails,
+                education: updatedEd
             };
         });
     }
@@ -66,6 +86,7 @@ function App() {
                 handleWebLinksChange={handleWebLinksChange} addWebsiteLink={addWebsiteLink}
                 removeWebsiteLink={removeWebsiteLink}
                 loadedValues={formDetails}
+                handleEdFieldChange={handleEdFieldChange}
             />
             <section className="MainContent">
                 <Resume formDetails={formDetails} />

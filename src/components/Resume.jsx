@@ -42,6 +42,21 @@ export default function Resume({ formDetails }) {
                     </div>
                 </div>
             </div>
+
+            {/* Education Section*/}
+            {
+                formDetails.education.map((edu, index) => {
+                    
+                    return (
+                        <section className='EducationSection' key={index}>
+                            <h3>{edu.school}</h3>
+                            <h4>{edu.degree}</h4>
+                            <h4>{edu.years}</h4>
+                            <p>{edu.grade}</p>
+                        </section>
+                    );
+                })
+            }
         </section>
     );
 }

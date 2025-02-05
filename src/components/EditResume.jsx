@@ -1,8 +1,9 @@
 // import { useState } from "react";
 import PersonalInfo from "./PersonalInfo";
 import '../styles/EditResume.css'
+import Education from "./Education";
 
-export default function EditSection({ handleInputChange, formDetails, handleWebLinksChange, addWebsiteLink, removeWebsiteLink }) {
+export default function EditSection({ handleInputChange, formDetails, handleWebLinksChange, addWebsiteLink, removeWebsiteLink, handleEdFieldChange }) {
 
     return (
         <section className='EditSection'>
@@ -19,6 +20,7 @@ export default function EditSection({ handleInputChange, formDetails, handleWebL
                     </div>
                 ))}
             </div>
+            <Education handleEdFieldChange={handleEdFieldChange} formDetails={formDetails} />
         </section>
     );
 }
