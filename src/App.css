@@ -1,8 +1,7 @@
 #root {
     width: 100%;
-    height: 100vh;
-    /* padding: 2rem; */
-    /* text-align: center; */
+    /* height: 100vh; */
+    padding: 1rem;
 }
 
 * {
@@ -13,8 +12,7 @@
 
 .MainSection {
     display: flex;
-    /* border: 1px solid red; */
-    height: 100vh;
+    /* height: 100vh; */
 }
 
 .EditSection {

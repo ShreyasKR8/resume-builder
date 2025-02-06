@@ -6,6 +6,14 @@ button {
     cursor: pointer;
 }
 
+.PersonalInfoEditSection {
+    margin-bottom: 20px;
+    padding: 0px 0px 15px 0px;
+    border: 2px solid grey;
+    border-radius: 5px;
+    width: 320px;
+}
+
 .WebLabelDiv {
     display: flex;
     justify-content: space-between;
@@ -23,11 +31,25 @@ button {
 .WebsiteLinksDiv {
     display: flex;
     flex-direction: column;
-    padding: 20px 20px;
+    padding: 0px 20px;
     border: 4px solid rgba(255, 255, 255, 0.37);
     width: 330px;
 }
 
 .WebInputFields {
     display: flex;
+}
+
+.EducationEditDiv {
+    display: flex;
+    flex-direction: column;
+    padding: 5px 20px 15px;
+    border: 2px solid grey;
+    border-radius: 5px;
+    background-color:rgb(223, 223, 223);
+    width: 320px;
+}
+
+.ResumeEditHeadings {
+    margin-left: 10px;
 }

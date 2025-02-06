@@ -4,27 +4,29 @@ import Resume from './components/Resume'
 import EditSection from "./components/EditResume"
 import storage from "./storage.js"
 
+const educationObject = {
+    school: "",
+    degree: "",
+    years: "",
+    grade: ""
+};
+
+const formDetailsObject = {
+    name: '',
+    designation: '',
+    email: '',
+    phone: '',
+    websiteLink: [''],
+    education: [educationObject]
+};
+
 function App() {
     const [formDetails, setFormDetails] = useState(() => {
         const savedFormDetails = storage.loadDetails();
         if (savedFormDetails) {
             return savedFormDetails;
         } else {
-            return {
-                name: '',
-                designation: '',
-                email: '',
-                phone: '',
-                websiteLink: [''],
-                education: [
-                    {
-                        school: "",
-                        degree: "",
-                        years: "",
-                        grade: ""
-                    }
-                ]
-            }
+            return formDetailsObject;
         }
     });
 
@@ -80,6 +82,23 @@ function App() {
         })
     }
 
+    function addEdField() {
+        setFormDetails(prevDetails => ({
+            ...prevDetails,
+            education: [...prevDetails.education, educationObject]
+        }));
+    }
+
+    function removeEdField(index) {
+        setFormDetails(prevDetails => {
+            const updatedEd = prevDetails.education;
+            return {
+                ...prevDetails,
+                education: updatedEd.filter((_, i) => index !== i)
+            };
+        });
+    }
+
     return (
         <section className="MainSection">
             <EditSection handleInputChange={handleInputChange} formDetails={formDetails}
@@ -87,6 +106,8 @@ function App() {
                 removeWebsiteLink={removeWebsiteLink}
                 loadedValues={formDetails}
                 handleEdFieldChange={handleEdFieldChange}
+                addEdField={addEdField}
+                removeEdField={removeEdField}
             />
             <section className="MainContent">
                 <Resume formDetails={formDetails} />

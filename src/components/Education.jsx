@@ -1,27 +1,29 @@
 
-const educationFields = [
+const educationFieldsLabels = [
     'School',
     'Degree',
     'Years',
     'Grade'
 ];
 
-export default function Education({ handleEdFieldChange, formDetails }) {
+export default function Education({ handleEdFieldChange, formDetails, removeEdField }) {
     return (
+
             formDetails.education.map((edu, index) => (
                 <div className="EducationEditDiv" key={index}>
-                    <label htmlFor='school'>{educationFields[0]}
+                    <label htmlFor='school'>{educationFieldsLabels[0]}
                         <input id={'school'} type='text' onChange={(e) => handleEdFieldChange(e, index)} value={formDetails.education[index]['school']}/>
                     </label>
-                    <label htmlFor='degree'>{educationFields[1]}
+                    <label htmlFor='degree'>{educationFieldsLabels[1]}
                         <input id={'degree'} type='text' onChange={(e) => handleEdFieldChange(e, index)} value={formDetails.education[index]['degree']}/>
                     </label>
-                    <label htmlFor='years'>{educationFields[2]}
+                    <label htmlFor='years'>{educationFieldsLabels[2]}
                         <input id={'years'} type='text' onChange={(e) => handleEdFieldChange(e, index)} value={formDetails.education[index]['years']}/>
                     </label>
-                    <label htmlFor='grade'>{educationFields[3]}
+                    <label htmlFor='grade'>{educationFieldsLabels[3]}
                         <input id={'grade'} type='text' onChange={(e) => handleEdFieldChange(e, index)} value={formDetails.education[index]['grade']}/>
                     </label>
+                    {index !== 0 && <button type='button' onClick={() => removeEdField(index)}>❌</button>}
                 </div>
             ))
     )
