@@ -4,18 +4,24 @@
     /* height: 100vh; */
     margin: 20px 50px;
     background-color: white;
+    padding: 40px;
+
 }
 
 .PersonalDetails {
     display: flex;
     justify-content: space-between;
-    padding: 30px;
 }
 
 h1 {
     font-size: 2.5em;
     line-height: 1.1;
-  }
+}
+
+.NameDes h3 {
+    margin: 5px 5px 5px 2px;
+    color: #8596a5;
+}
 
 .EmailIcon {
     margin-right: 5px;
@@ -45,6 +51,16 @@ h1 {
     color: #747bff;
 }
 
-/* .EducationSection {
+.ResumeDetails {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 60px;
+}
 
-} */
+.EducationSection h2 {
+    color: #747bff;
+}
+
+.EducationDetails {
+    margin: 10px 0 20px;
+}

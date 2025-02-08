@@ -11,6 +11,7 @@ export default function Education({ handleEdFieldChange, formDetails, removeEdFi
 
             formDetails.education.map((edu, index) => (
                 <div className="EducationEditDiv" key={index}>
+                    {index !== 0 && <button type='button' onClick={() => removeEdField(index)}>❌</button>}
                     <label htmlFor='school'>{educationFieldsLabels[0]}
                         <input id={'school'} type='text' onChange={(e) => handleEdFieldChange(e, index)} value={formDetails.education[index]['school']}/>
                     </label>
@@ -23,7 +24,6 @@ export default function Education({ handleEdFieldChange, formDetails, removeEdFi
                     <label htmlFor='grade'>{educationFieldsLabels[3]}
                         <input id={'grade'} type='text' onChange={(e) => handleEdFieldChange(e, index)} value={formDetails.education[index]['grade']}/>
                     </label>
-                    {index !== 0 && <button type='button' onClick={() => removeEdField(index)}>❌</button>}
                 </div>
             ))
     )

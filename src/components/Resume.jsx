@@ -10,10 +10,10 @@ export default function Resume({ formDetails }) {
     
     return (
         <section className='ResumeSection'>
-            <div className='PersonalDetails'>
+            <section className='PersonalDetails'>
                 <div className="NameDes">
                     <h1>{formDetails.name}</h1>
-                    <h4>{formDetails.designation}</h4>
+                    <h3>{formDetails.designation}</h3>
                 </div>
                 <div className="ContactInfo">
                     <div className="IconTextContainer">
@@ -41,22 +41,23 @@ export default function Resume({ formDetails }) {
                     }
                     </div>
                 </div>
-            </div>
-
-            {/* Education Section*/}
-            {
-                formDetails.education.map((edu, index) => {
-                    
-                    return (
-                        <section className='EducationSection' key={index}>
-                            <h3>{edu.school}</h3>
-                            <h4>{edu.degree}</h4>
-                            <h4>{edu.years}</h4>
-                            <p>{edu.grade}</p>
-                        </section>
-                    );
-                })
-            }
+            </section>
+            <section className="ResumeDetails">
+                {/* Education Section*/}
+                <article className="EducationSection">
+                    <h2>Education</h2>
+                    {formDetails.education.map((edu, index) => {
+                        return (
+                            <article className='EducationDetails' key={index}>
+                                <h3>{edu.school}</h3>
+                                <h4>{edu.years}</h4>
+                                <h4>{edu.degree}</h4>
+                                <p>{edu.grade && "Grade:"}{edu.grade}</p>
+                            </article>
+                        );
+                    })}
+                </article>
+            </section>
         </section>
     );
 }

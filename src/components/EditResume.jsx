@@ -24,8 +24,10 @@ export default function EditSection({ handleInputChange, formDetails, handleWebL
                 </div>
             </section>
             <section className="EducationEditSection">
-                <h2 className="ResumeEditHeadings">Education</h2>
-                <button type="button" onClick={addEdField}>➕</button>
+                <div className="EducationHeader">
+                    <h2 className="ResumeEditHeadings">Education</h2>
+                    <button type="button" onClick={addEdField}>➕</button>
+                </div>
                 <Education handleEdFieldChange={handleEdFieldChange} formDetails={formDetails} removeEdField={removeEdField}/>
             </section>
         </section>
