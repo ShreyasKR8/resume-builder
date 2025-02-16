@@ -57,6 +57,23 @@ export default function Resume({ formDetails }) {
                         );
                     })}
                 </article>
+                {/* Experience Section*/}
+                <article className="EducationSection">
+                    <h2>Work Experience</h2>
+                    {formDetails.experience.map((exp, index) => {
+                        return (
+                            <article className='ExpDetails' key={index}>
+                                <div className="RoleYearDiv">
+                                    <h3>{exp.role}</h3>
+                                    <h4>{exp.workYears}</h4>
+                                </div>
+                                <h4>{exp.company}</h4>
+                                <p>{exp.location}</p>
+                                <p className='achievements'>{exp.achievements}</p>
+                            </article>
+                        );
+                    })}
+                </article>
             </section>
         </section>
     );

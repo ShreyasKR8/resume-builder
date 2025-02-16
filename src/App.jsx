@@ -10,6 +10,13 @@ const educationObject = {
     years: "",
     grade: ""
 };
+const experienceObject = {
+    role: "",
+    company: "",
+    workYears: "",
+    location: "",
+    achievements: ""
+}
 
 const formDetailsObject = {
     name: '',
@@ -17,7 +24,8 @@ const formDetailsObject = {
     email: '',
     phone: '',
     websiteLink: [''],
-    education: [educationObject]
+    education: [educationObject],
+    experience: [experienceObject]
 };
 
 function App() {
@@ -99,6 +107,35 @@ function App() {
         });
     }
 
+    function handleExpFieldChange(e, index) {
+        const value = e.target.value;
+        setFormDetails(prevDetails => {
+            const updatedExp = [...prevDetails.experience];
+            updatedExp[index][e.target.id] = value;
+            return {
+                ...prevDetails,
+                experience: updatedExp
+            };
+        });
+    }
+
+    function addExpField() {
+        setFormDetails(prevDetails => ({
+            ...prevDetails,
+            experience: [...prevDetails.experience, experienceObject]
+        }));
+    }
+    
+    function removeExpField(index) {
+        setFormDetails(prevDetails => {
+            const updatedExp = prevDetails.experience;
+            return {
+                ...prevDetails,
+                experience: updatedExp.filter((_, i) => index !== i)
+            };
+        });
+    }
+
     return (
         <section className="MainSection">
             <EditSection handleInputChange={handleInputChange} formDetails={formDetails}
@@ -108,6 +145,9 @@ function App() {
                 handleEdFieldChange={handleEdFieldChange}
                 addEdField={addEdField}
                 removeEdField={removeEdField}
+                handleExpFieldChange={handleExpFieldChange}
+                addExpField={addExpField}
+                removeExpField={removeExpField}
             />
             <section className="MainContent">
                 <Resume formDetails={formDetails} />

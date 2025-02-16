@@ -2,8 +2,10 @@
 import PersonalInfo from "./PersonalInfo";
 import '../styles/EditResume.css'
 import Education from "./Education";
+import WorkExperience from "./WorkExperience"
 
-export default function EditSection({ handleInputChange, formDetails, handleWebLinksChange, addWebsiteLink, removeWebsiteLink, handleEdFieldChange, addEdField, removeEdField }) {
+export default function EditSection({ handleInputChange, formDetails, handleWebLinksChange, 
+    addWebsiteLink, removeWebsiteLink, handleEdFieldChange, addEdField, removeEdField, handleExpFieldChange, addExpField, removeExpField }) {
 
     return (
         <section className='EditSection'>
@@ -29,6 +31,13 @@ export default function EditSection({ handleInputChange, formDetails, handleWebL
                     <button type="button" onClick={addEdField}>➕</button>
                 </div>
                 <Education handleEdFieldChange={handleEdFieldChange} formDetails={formDetails} removeEdField={removeEdField}/>
+            </section>
+            <section className="ExpEditSection">
+                <div className="ExpHeader">
+                    <h2 className="ResumeEditHeadings">Work Experience</h2>
+                    <button type="button" onClick={addExpField}>➕</button>
+                </div>
+                <WorkExperience handleExpFieldChange={handleExpFieldChange} formDetails={formDetails} addExpField={addExpField} removeExpField={removeExpField}/>
             </section>
         </section>
     );

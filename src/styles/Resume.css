@@ -64,3 +64,17 @@ h1 {
 .EducationDetails {
     margin: 10px 0 20px;
 }
+
+.RoleYearDiv {
+    display: flex;
+    justify-content: space-between;
+    width: 450px;
+}
+
+.ExpDetails {
+    margin: 10px 0 20px 3px;
+}
+
+.ExpDetails .achievements {
+    margin-top: 20px;
+}
