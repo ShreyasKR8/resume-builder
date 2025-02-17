@@ -26,4 +26,6 @@
     width: 100%;
     background-color: rgb(226, 226, 226);
     box-shadow: 1px 1px 11px grey;
+    height: 100vh;
+    overflow: auto;
 }

@@ -1,4 +1,4 @@
-// import { useState } from "react";
+import { useState } from "react";
 import PersonalInfo from "./PersonalInfo";
 import '../styles/EditResume.css'
 import Education from "./Education";
@@ -6,6 +6,17 @@ import WorkExperience from "./WorkExperience"
 
 export default function EditSection({ handleInputChange, formDetails, handleWebLinksChange, 
     addWebsiteLink, removeWebsiteLink, handleEdFieldChange, addEdField, removeEdField, handleExpFieldChange, addExpField, removeExpField }) {
+
+    const [isEducationVisible, setIsEducationVisible] = useState(true);
+    const [isExperienceVisible, setIsExperienceVisible] = useState(true);
+    
+    function toggleEducationVisibilty() {
+        setIsEducationVisible(prev => !prev);
+    }
+    
+    function toggleExperienceVisibilty() {
+        setIsExperienceVisible(prev => !prev);
+    }
 
     return (
         <section className='EditSection'>
@@ -28,16 +39,22 @@ export default function EditSection({ handleInputChange, formDetails, handleWebL
             <section className="EducationEditSection">
                 <div className="EducationHeader">
                     <h2 className="ResumeEditHeadings">Education</h2>
-                    <button type="button" onClick={addEdField}>➕</button>
+                    <div className="SectionButtons">
+                        <button type="button" onClick={addEdField}>➕</button>
+                        <button type="button" onClick={toggleEducationVisibilty}>🔽</button>
+                    </div>
                 </div>
-                <Education handleEdFieldChange={handleEdFieldChange} formDetails={formDetails} removeEdField={removeEdField}/>
+                {isEducationVisible && <Education handleEdFieldChange={handleEdFieldChange} formDetails={formDetails} removeEdField={removeEdField}/>}
             </section>
             <section className="ExpEditSection">
                 <div className="ExpHeader">
                     <h2 className="ResumeEditHeadings">Work Experience</h2>
-                    <button type="button" onClick={addExpField}>➕</button>
+                    <div className="SectionButtons">
+                        <button type="button" onClick={addExpField}>➕</button>
+                        <button type="button" onClick={toggleExperienceVisibilty}>🔽</button>
+                    </div>
                 </div>
-                <WorkExperience handleExpFieldChange={handleExpFieldChange} formDetails={formDetails} addExpField={addExpField} removeExpField={removeExpField}/>
+                {isExperienceVisible && <WorkExperience handleExpFieldChange={handleExpFieldChange} formDetails={formDetails} addExpField={addExpField} removeExpField={removeExpField}/>}
             </section>
         </section>
     );
