@@ -1,4 +1,4 @@
-.ExpEditDiv {
+/* .ExpEditDiv {
     display: flex;
     flex-direction: column;
     padding: 5px 20px 15px;
@@ -10,7 +10,7 @@
 }
 
 .ExpEditDiv button {
-    background-color: rgba(223, 223, 223, 0); /* Transparent bg color*/
+    background-color: rgba(223, 223, 223, 0);
     align-self: flex-end;
     padding: 0;
     margin-top: 2px;
@@ -20,7 +20,7 @@
     width: var(--edit-sections-width );
     display: flex;
     justify-content: space-between;
-}
+} */
 
 textarea {
     margin-top: 5px;

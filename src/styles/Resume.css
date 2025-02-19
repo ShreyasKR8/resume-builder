@@ -1,10 +1,12 @@
 .ResumeSection {
     border-radius: 4px;
-    box-shadow: 1px 1px 2px rgb(162, 162, 162);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     /* height: 100vh; */
-    margin: 20px 50px;
+    /* margin: 20px 50px; */
+    margin: 30px auto;
     background-color: white;
-    padding: 40px;
+    padding: 40px 37px;
+    width: 794px; height: 1123px
 
 }
 
@@ -57,7 +59,9 @@ h1 {
     margin-top: 60px;
 }
 
-.EducationSection h2 {
+.EducationSection h2,
+.ExpSection h2,
+.ProjectsSection h2 {
     color: #747bff;
 }
 
@@ -77,4 +81,16 @@ h1 {
 
 .ExpDetails .achievements {
     margin-top: 20px;
+}
+
+.ProjectTitleDiv {
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+}
+
+.ProjectDetails p,
+.ExpDetails p,
+.EducationDetails p {
+    text-align: justify;
 }

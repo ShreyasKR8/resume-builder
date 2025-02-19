@@ -3,6 +3,7 @@ import emailIcon from '../assets/email_icon.svg'
 import phoneIcon from '../assets/phone_smartphone_icon.svg'
 import gitIcon from '../assets/social_github_icon.svg'
 import linkedInIcon from '../assets/icons8-linkedin.svg'
+import newTabIcon from '../assets/open_in_new_tab.svg'
 
 export default function Resume({ formDetails }) {
 
@@ -58,7 +59,7 @@ export default function Resume({ formDetails }) {
                     })}
                 </article>
                 {/* Experience Section*/}
-                <article className="EducationSection">
+                <article className="ExpSection">
                     <h2>Work Experience</h2>
                     {formDetails.experience.map((exp, index) => {
                         return (
@@ -70,6 +71,21 @@ export default function Resume({ formDetails }) {
                                 <h4>{exp.company}</h4>
                                 <p>{exp.location}</p>
                                 <p className='achievements'>{exp.achievements}</p>
+                            </article>
+                        );
+                    })}
+                </article>
+                {/* Projects Section*/}
+                <article className="ProjectsSection">
+                    <h2>Personal Projects</h2>
+                    {formDetails.projects.map((project, index) => {
+                        return (
+                            <article className='ProjectDetails' key={index}>
+                                <div className="ProjectTitleDiv">
+                                    <h3>{project.title}</h3>
+                                    <a href={project.githubLink} target='blank'><img src={newTabIcon}></img></a>
+                                </div>
+                                <p>{project.description}</p>
                             </article>
                         );
                     })}

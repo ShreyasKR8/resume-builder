@@ -47,7 +47,11 @@ button {
     display: flex;
 }
 
-.EducationEditDiv {
+.ResumeEditHeadings {
+    margin-left: 10px;
+}
+
+.EditDiv {
     display: flex;
     flex-direction: column;
     padding: 5px 20px 15px;
@@ -58,19 +62,15 @@ button {
     margin-bottom: 20px;
 }
 
-.EducationEditDiv button {
+.EditDiv button {
     background-color: rgba(223, 223, 223, 0); /* Transparent bg color*/
     align-self: flex-end;
     padding: 0;
     margin-top: 2px;
 }
 
-.EducationHeader {
+.EditHeaders {
     width: var(--edit-sections-width );
     display: flex;
     justify-content: space-between;
-}
-
-.ResumeEditHeadings {
-    margin-left: 10px;
 }

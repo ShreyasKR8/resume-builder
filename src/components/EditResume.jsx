@@ -3,12 +3,15 @@ import PersonalInfo from "./PersonalInfo";
 import '../styles/EditResume.css'
 import Education from "./Education";
 import WorkExperience from "./WorkExperience"
+import Projects from "./Projects";
 
 export default function EditSection({ handleInputChange, formDetails, handleWebLinksChange, 
-    addWebsiteLink, removeWebsiteLink, handleEdFieldChange, addEdField, removeEdField, handleExpFieldChange, addExpField, removeExpField }) {
+    addWebsiteLink, removeWebsiteLink, handleEdFieldChange, addEdField, removeEdField, handleExpFieldChange, addExpField, removeExpField,
+    handleProjectFieldChange, addProjectField, removeProjectField }) {
 
     const [isEducationVisible, setIsEducationVisible] = useState(true);
     const [isExperienceVisible, setIsExperienceVisible] = useState(true);
+    const [isProjectsVisible, setIsProjectsVisible] = useState(true);
     
     function toggleEducationVisibilty() {
         setIsEducationVisible(prev => !prev);
@@ -16,6 +19,10 @@ export default function EditSection({ handleInputChange, formDetails, handleWebL
     
     function toggleExperienceVisibilty() {
         setIsExperienceVisible(prev => !prev);
+    }
+
+    function toggleProjectsVisibilty() {
+        setIsProjectsVisible(prev => !prev);
     }
 
     return (
@@ -37,7 +44,7 @@ export default function EditSection({ handleInputChange, formDetails, handleWebL
                 </div>
             </section>
             <section className="EducationEditSection">
-                <div className="EducationHeader">
+                <div className="EditHeaders EducationHeader">
                     <h2 className="ResumeEditHeadings">Education</h2>
                     <div className="SectionButtons">
                         <button type="button" onClick={addEdField}>➕</button>
@@ -47,14 +54,24 @@ export default function EditSection({ handleInputChange, formDetails, handleWebL
                 {isEducationVisible && <Education handleEdFieldChange={handleEdFieldChange} formDetails={formDetails} removeEdField={removeEdField}/>}
             </section>
             <section className="ExpEditSection">
-                <div className="ExpHeader">
+                <div className="EditHeaders ExpHeader">
                     <h2 className="ResumeEditHeadings">Work Experience</h2>
                     <div className="SectionButtons">
                         <button type="button" onClick={addExpField}>➕</button>
                         <button type="button" onClick={toggleExperienceVisibilty}>🔽</button>
                     </div>
                 </div>
-                {isExperienceVisible && <WorkExperience handleExpFieldChange={handleExpFieldChange} formDetails={formDetails} addExpField={addExpField} removeExpField={removeExpField}/>}
+                {isExperienceVisible && <WorkExperience handleExpFieldChange={handleExpFieldChange} formDetails={formDetails} removeExpField={removeExpField}/>}
+            </section>
+            <section className="ProjectsEditSection">
+                <div className="EditHeaders ProjectsHeader">
+                    <h2 className="ResumeEditHeadings">Projects</h2>
+                    <div className="SectionButtons">
+                        <button type="button" onClick={addProjectField}>➕</button>
+                        <button type="button" onClick={toggleProjectsVisibilty}>🔽</button>
+                    </div>
+                </div>
+                {isProjectsVisible && <Projects handleProjectFieldChange={handleProjectFieldChange} formDetails={formDetails} removeProjectField={removeProjectField}/>}
             </section>
         </section>
     );

@@ -12,7 +12,7 @@ export default function Experience({ handleExpFieldChange, formDetails, removeEx
     return (
 
         formDetails.experience.map((exp, index) => (
-            <div className="ExpEditDiv" key={index}>
+            <div className="EditDiv ExpEditDiv" key={index}>
                 {index !== 0 && <button type='button' onClick={() => removeExpField(index)}>❌</button>}
                 <label htmlFor='role'>{expFieldsLabels[0]}
                     <input id={'role'} type='text' onChange={(e) => handleExpFieldChange(e, index)} value={exp['role']}/>

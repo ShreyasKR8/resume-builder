@@ -10,12 +10,19 @@ const educationObject = {
     years: "",
     grade: ""
 };
+
 const experienceObject = {
     role: "",
     company: "",
     workYears: "",
     location: "",
     achievements: ""
+}
+
+const projectObject = {
+    title: "",
+    githubLink: "",
+    description: ""
 }
 
 const formDetailsObject = {
@@ -25,7 +32,8 @@ const formDetailsObject = {
     phone: '',
     websiteLink: [''],
     education: [educationObject],
-    experience: [experienceObject]
+    experience: [experienceObject],
+    projects: [projectObject],
 };
 
 function App() {
@@ -136,6 +144,35 @@ function App() {
         });
     }
 
+    function addProjectField() {
+        setFormDetails(prevDetails => ({
+            ...prevDetails,
+            projects: [...prevDetails.projects, projectObject]
+        }));
+    }
+    
+    function removeProjectField(index) {
+        setFormDetails(prevDetails => {
+            const updatedProjects = prevDetails.projects;
+            return {
+                ...prevDetails,
+                projects: updatedProjects.filter((_, i) => index !== i)
+            };
+        });
+    }
+
+    function handleProjectFieldChange(e, index) {
+        const value = e.target.value;
+        setFormDetails(prevDetails => {
+            const updatedProjects = [...prevDetails.projects];
+            updatedProjects[index][e.target.id] = value;
+            return {
+                ...prevDetails,
+                projects: updatedProjects
+            };
+        });
+    }
+
     return (
         <section className="MainSection">
             <EditSection handleInputChange={handleInputChange} formDetails={formDetails}
@@ -148,6 +185,9 @@ function App() {
                 handleExpFieldChange={handleExpFieldChange}
                 addExpField={addExpField}
                 removeExpField={removeExpField}
+                handleProjectFieldChange={handleProjectFieldChange}
+                addProjectField={addProjectField}
+                removeProjectField={removeProjectField}
             />
             <section className="MainContent">
                 <Resume formDetails={formDetails} />
