@@ -56,6 +56,7 @@ h1 {
 .ResumeDetails {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    /* grid-template-rows: auto; */
     margin-top: 60px;
 }
 
@@ -69,10 +70,15 @@ h1 {
     margin: 10px 0 20px;
 }
 
+.EducationDetails .degreeP {
+    font-size: 16px;
+    font-weight:500;
+}
+
 .RoleYearDiv {
     display: flex;
     justify-content: space-between;
-    width: 450px;
+    
 }
 
 .ExpDetails {
@@ -87,10 +93,21 @@ h1 {
     display: flex;
     align-items: flex-end;
     gap: 4px;
+    margin-bottom: 5px; 
 }
 
 .ProjectDetails p,
 .ExpDetails p,
 .EducationDetails p {
     text-align: justify;
+    font-size: 14px;
+}
+
+.ProjectDetails {
+    margin: 10px 0;
+
+}
+
+.ProjectDetails p {
+    margin-left: 5px;
 }

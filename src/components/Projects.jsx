@@ -19,7 +19,7 @@ export default function Projects({ handleProjectFieldChange, formDetails, remove
                     <input id={'githubLink'} type='text' onChange={(e) => handleProjectFieldChange(e, index)} value={project['githubLink']}/>
                 </label>
                 <label htmlFor='description'>{expFieldsLabels[2]}
-                    <input id={'description'} type='text' onChange={(e) => handleProjectFieldChange(e, index)} value={project['description']}/>
+                    <textarea id={'description'} type='text' onChange={(e) => handleProjectFieldChange(e, index)} value={project['description']}></textarea>
                 </label>
             </div>
         ))

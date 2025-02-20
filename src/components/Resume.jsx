@@ -50,9 +50,9 @@ export default function Resume({ formDetails }) {
                     {formDetails.education.map((edu, index) => {
                         return (
                             <article className='EducationDetails' key={index}>
-                                <h3>{edu.school}</h3>
-                                <h4>{edu.years}</h4>
-                                <h4>{edu.degree}</h4>
+                                <h4>{edu.school}</h4>
+                                <p className='degreeP'>{edu.degree}</p>
+                                <p>{edu.years}</p>
                                 <p>{edu.grade && "Grade:"}{edu.grade}</p>
                             </article>
                         );
@@ -65,10 +65,10 @@ export default function Resume({ formDetails }) {
                         return (
                             <article className='ExpDetails' key={index}>
                                 <div className="RoleYearDiv">
-                                    <h3>{exp.role}</h3>
-                                    <h4>{exp.workYears}</h4>
+                                    <h4>{exp.role}</h4>
+                                    <p>{exp.workYears}</p>
                                 </div>
-                                <h4>{exp.company}</h4>
+                                <p>{exp.company}</p>
                                 <p>{exp.location}</p>
                                 <p className='achievements'>{exp.achievements}</p>
                             </article>
@@ -82,7 +82,7 @@ export default function Resume({ formDetails }) {
                         return (
                             <article className='ProjectDetails' key={index}>
                                 <div className="ProjectTitleDiv">
-                                    <h3>{project.title}</h3>
+                                    <h4>{project.title}</h4>
                                     <a href={project.githubLink} target='blank'><img src={newTabIcon}></img></a>
                                 </div>
                                 <p>{project.description}</p>
