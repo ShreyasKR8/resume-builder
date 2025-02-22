@@ -8,6 +8,7 @@ import newTabIcon from '../assets/open_in_new_tab.svg'
 export default function Resume({ formDetails }) {
 
     const mailTo = `mailto:${formDetails.email}`;
+    const skills = formDetails.skills.split(",");
     
     return (
         <section className='ResumeSection'>
@@ -89,6 +90,17 @@ export default function Resume({ formDetails }) {
                             </article>
                         );
                     })}
+                </article>
+                {/* Skills Section*/}
+                <article className="SkillsSection">
+                    <h2>Skills</h2>
+                    <div className="SkillsDiv">
+                    {
+                        skills.map((skill, index) => (
+                            skill && <div className="SkillDiv" key={index}>{skill}</div>
+                        ))
+                    }
+                    </div>
                 </article>
             </section>
         </section>

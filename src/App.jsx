@@ -34,6 +34,7 @@ const formDetailsObject = {
     education: [educationObject],
     experience: [experienceObject],
     projects: [projectObject],
+    skills: "",
 };
 
 function App() {

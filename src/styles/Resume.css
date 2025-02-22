@@ -56,13 +56,15 @@ h1 {
 .ResumeDetails {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    gap: 0 40px;
     /* grid-template-rows: auto; */
     margin-top: 60px;
 }
 
 .EducationSection h2,
 .ExpSection h2,
-.ProjectsSection h2 {
+.ProjectsSection h2,
+.SkillsSection h2 {
     color: #747bff;
 }
 
@@ -110,4 +112,19 @@ h1 {
 
 .ProjectDetails p {
     margin-left: 5px;
+}
+
+.SkillsDiv {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.SkillDiv {
+    border: none;
+    padding: 3px 10px;
+    border-radius: 4px;
+    background-color: #9a9dff;
+    color: white;
 }

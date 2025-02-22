@@ -73,6 +73,10 @@ export default function EditSection({ handleInputChange, formDetails, handleWebL
                 </div>
                 {isProjectsVisible && <Projects handleProjectFieldChange={handleProjectFieldChange} formDetails={formDetails} removeProjectField={removeProjectField}/>}
             </section>
+            <section className="EditDiv skills">
+                <label htmlFor="skills">Skills</label>
+                <textarea id='skills' onChange={handleInputChange} value={formDetails.skills} placeholder="Enter comma seperated skills.."/>
+            </section>
         </section>
     );
 }
