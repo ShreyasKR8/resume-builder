@@ -102,6 +102,21 @@ export default function Resume({ formDetails }) {
                     }
                     </div>
                 </article>
+                {/* Certs Section*/}
+                <article className="CertsSection">
+                    <h2>Courses and Certications</h2>
+                    {formDetails.certifications.map((cert, index) => {
+                        return (
+                            <article className='CertsDetails' key={index}>
+                                <div className="CertsTitleDiv">
+                                    <h4>{cert.title}</h4>
+                                    <a href={cert.certLink} target='blank'><img src={newTabIcon}></img></a>
+                                </div>
+                                <p>{cert.courseProvider}</p>
+                            </article>
+                        );
+                    })}
+                </article>
             </section>
         </section>
     );

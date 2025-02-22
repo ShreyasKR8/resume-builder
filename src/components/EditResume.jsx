@@ -4,14 +4,18 @@ import '../styles/EditResume.css'
 import Education from "./Education";
 import WorkExperience from "./WorkExperience"
 import Projects from "./Projects";
+import Certifications from "./Certifications";
 
 export default function EditSection({ handleInputChange, formDetails, handleWebLinksChange, 
-    addWebsiteLink, removeWebsiteLink, handleEdFieldChange, addEdField, removeEdField, handleExpFieldChange, addExpField, removeExpField,
-    handleProjectFieldChange, addProjectField, removeProjectField }) {
+    addWebsiteLink, removeWebsiteLink, handleEdFieldChange, addEdField, removeEdField, 
+    handleExpFieldChange, addExpField, removeExpField,
+    handleProjectFieldChange, addProjectField, removeProjectField,
+    addCertField, removeCertField, handleCertFieldChange }) {
 
     const [isEducationVisible, setIsEducationVisible] = useState(true);
     const [isExperienceVisible, setIsExperienceVisible] = useState(true);
     const [isProjectsVisible, setIsProjectsVisible] = useState(true);
+    const [isCoursesVisible, setIsCoursesVisible] = useState(true);
     
     function toggleEducationVisibilty() {
         setIsEducationVisible(prev => !prev);
@@ -23,6 +27,10 @@ export default function EditSection({ handleInputChange, formDetails, handleWebL
 
     function toggleProjectsVisibilty() {
         setIsProjectsVisible(prev => !prev);
+    }
+
+    function toggleCoursesVisibilty() {
+        setIsCoursesVisible(prev => !prev);
     }
 
     return (
@@ -78,6 +86,16 @@ export default function EditSection({ handleInputChange, formDetails, handleWebL
                 <div className="EditDiv SkillsEditDiv">
                     <textarea id='skills' onChange={handleInputChange} value={formDetails.skills} placeholder="Enter comma seperated skills.."/>
                 </div>
+            </section>
+            <section className="CertsEditSection">
+                <div className="EditHeaders CertsHeader">
+                    <h2 className="ResumeEditHeadings">Certifications</h2>
+                    <div className="SectionButtons">
+                        <button type="button" onClick={addCertField}>➕</button>
+                        <button type="button" onClick={toggleCoursesVisibilty}>🔽</button>
+                    </div>
+                </div>
+                {isCoursesVisible && <Certifications handleCertFieldChange={handleCertFieldChange} formDetails={formDetails} removeCertField={removeCertField}/>}
             </section>
         </section>
     );

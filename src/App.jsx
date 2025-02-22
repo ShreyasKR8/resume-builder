@@ -25,6 +25,12 @@ const projectObject = {
     description: ""
 }
 
+const certificationObject = {
+    title: "",
+    courseProvider: "",
+    certLink: ""
+}
+
 const formDetailsObject = {
     name: '',
     designation: '',
@@ -35,6 +41,7 @@ const formDetailsObject = {
     experience: [experienceObject],
     projects: [projectObject],
     skills: "",
+    certifications: [certificationObject],
 };
 
 function App() {
@@ -174,6 +181,35 @@ function App() {
         });
     }
 
+    function addCertsField() {
+        setFormDetails(prevDetails => ({
+            ...prevDetails,
+            certifications: [...prevDetails.certifications, certificationObject]
+        }));
+    }
+    
+    function removeCertsField(index) {
+        setFormDetails(prevDetails => {
+            const updatedCerts = prevDetails.certifications;
+            return {
+                ...prevDetails,
+                certifications: updatedCerts.filter((_, i) => index !== i)
+            };
+        });
+    }
+
+    function handleCertsFieldChange(e, index) {
+        const value = e.target.value;
+        setFormDetails(prevDetails => {
+            const updatedCerts = [...prevDetails.certifications];
+            updatedCerts[index][e.target.id] = value;
+            return {
+                ...prevDetails,
+                certifications: updatedCerts
+            };
+        });
+    }
+
     return (
         <section className="MainSection">
             <EditSection handleInputChange={handleInputChange} formDetails={formDetails}
@@ -189,6 +225,9 @@ function App() {
                 handleProjectFieldChange={handleProjectFieldChange}
                 addProjectField={addProjectField}
                 removeProjectField={removeProjectField}
+                addCertField={addCertsField}
+                removeCertField={removeCertsField}
+                handleCertFieldChange={handleCertsFieldChange}
             />
             <section className="MainContent">
                 <Resume formDetails={formDetails} />
