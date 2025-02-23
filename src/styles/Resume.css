@@ -57,6 +57,7 @@ h1 {
     gap: 0 40px;
     grid-template-areas: 
         "education work-exp"
+        "projects work-exp"
         "projects skills"
         "projects certs"
         "projects certs"
@@ -101,7 +102,8 @@ h1 {
     font-weight:500;
 }
 
-.RoleYearDiv {
+.RoleYearDiv,
+.SchoolYearDiv {
     display: flex;
     justify-content: space-between;
     

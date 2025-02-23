@@ -3,6 +3,7 @@ import './App.css'
 import Resume from './components/Resume'
 import EditSection from "./components/EditResume"
 import storage from "./storage.js"
+import data from "./data.js"
 
 const educationObject = {
     school: "",
@@ -32,16 +33,16 @@ const certificationObject = {
 }
 
 const formDetailsObject = {
-    name: '',
-    designation: '',
-    email: '',
-    phone: '',
-    websiteLink: [''],
-    education: [educationObject],
-    experience: [experienceObject],
-    projects: [projectObject],
-    skills: "",
-    certifications: [certificationObject],
+    name: 'Joseph Cooper',
+    designation: 'NASA Pilot',
+    email: 'coop08@gmail.com',
+    phone: '84729XX380',
+    websiteLink: data.websiteLinks,
+    education: data.education,
+    experience: data.experience,
+    projects: data.projects,
+    skills: "C,C++,JavaScript,SQL,Git,HTML, CSS,Problem solving",
+    certifications: data.certifications,
 };
 
 function App() {

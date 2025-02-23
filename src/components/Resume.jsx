@@ -51,9 +51,11 @@ export default function Resume({ formDetails }) {
                     {formDetails.education.map((edu, index) => {
                         return (
                             <article className='EducationDetails' key={index}>
-                                <h4>{edu.school}</h4>
+                                <div className="SchoolYearDiv">
+                                    <h4>{edu.school}</h4>
+                                    <p>{edu.years}</p>
+                                </div>
                                 <p className='degreeP'>{edu.degree}</p>
-                                <p>{edu.years}</p>
                                 <p>{edu.grade && "Grade:"}{edu.grade}</p>
                             </article>
                         );
